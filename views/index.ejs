@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> <!-- Carrousel -->
+</head>
+<body>
+    <!--cabecera,menu -->
+    <header>
+        <div class="container_header">
+            <div class="logo">
+                <a href="#">
+                    <img src="imagenes/logo.png" alt="Logo">
+                </a>
+            </div>
+            <div class="menu">
+                <nav>
+                    <ul> <!-- Lista -->
+                        <li><a href="#">Inicio</a></li>
+                        <li><a href="#">Novedades</a></li>
+                        <li><a href="#">Juego de tronos</a></li>
+                        <li><a href="#">La casa del dragon</a></li>
+                        <li><a href="#">Regístrate</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Portada de inicio -->
+        <div class="container_portada">
+            <div class="portada">
+                <section class="text_portada">
+                    <h1>Todo lo que necesita un fan de GOT está acá.</h1>
+                    <p>La serie nos sitúa en Invernalia, uno de los siete reinos del continente de Poniente. 
+                        Tras un largo verano, Lord Eddard 'Ned' Stark (Sean Bean, 'El señor de los anillos', 'Troya', 'Equilibrium'), 
+                        señor de Invernalia, es llamado a ocupar el cargo de Mano del Rey. Se verá obligado a dejar su tierra para 
+                        unirse a la corte del rey Robert Baratheon 'El Usurpador' (Mark Addy, 'Robin Hood', 'Los Picapiedra en Viva Rock Vegas'), 
+                        con la forma de vida del rey Baratheon, pero incluso más con la de los Lannister, una de las siete familias más importantes 
+                    </p>
+                    <a href="#" class="boton-portada">VER AQUÍ</a>
+                </section>
+                <section class="img_portada"> 
+                    <img src="imagenes/imagenportada.png" alt="Portada">
+                </section>
+            </div>
+        </div>
+
+        <!-- Parte dos del inicio -->
+        <div class="container-portada2">
+            <div class="portada2">
+                <div class="titulos-p2">
+                    <h2>TEMPORADA 1</h2>
+                    <h1>Todo lo que necesitas</h1>
+                </div>
+
+                <!-- Contenedor Principal de Tarjetas -->
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <!-- Bucle EJS para generar tarjetas dinámicamente -->
+                        <% swiperSlides.forEach(slide => { %>
+                            <div class="swiper-slide">
+                                <img src="<%= slide.imagen %>" alt="Imagen del Capítulo">
+                                <h2><%= slide.capitulo %></h2>
+                                <p><%= slide.descripcion %></p>
+                            </div>
+                        <% }); %>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
+            </div> 
+        </div>        
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> 
+    <script>
+        // Inicializa Swiper
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 1, 
+            breakpoints: {
+                768: {
+                    slidesPerView: 3
+                }
+            },
+            spaceBetween: 20, /*espacio entre las tarj*/
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        });
+    </script>
+
+        <footer class="footer">
+            <p>© 2024 Mi Sitio Web. Todos los derechos reservados. ahre</p>
+            <div class="redes">
+                <a href="">
+                    <img src="imagenes/facebook.png" alt="Facebook">
+                </a>
+                <a href="">
+                    <img src="imagenes/instagram.png" alt="Instagram">
+                </a>
+                <a href="">
+                    <img src="imagenes/whatsapp.png" alt="WhatsApp">
+                </a>
+            </div>
+        </footer>
+</body>
+</html>
